@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*style*/
+.input{
+    display: flex;
+    flex-direction: column;
+}
+
+.inp-habit, .jumlah-hari{
+    border-style: none;
+    border-bottom: 2px solid #32d1c1;
+    width: 70%;
+    height: 30px;
+    outline: none;
+}
+
+
+.btn-create{
+    /*border*/
+    border: #32d1c1;
+    border-style: solid;
+    background-color: #32d1c1;
+    border-radius: 10px;
+
+    /*Ukuran*/
+    width: 20vw;
+    height: 15vw;
+
+    /*Text*/
+    color: white;
+}
+
+
+
+/*Position*/
+.input{
+    margin: 30vw  0 10vw 20vw;
+}
+
+
+.inp-habit, .jumlah-hari{
+    margin-top: 10vw;
+}
+
+.btn-create{
+    margin-top: 30%;
+    margin-left: 70%;
+}
+
