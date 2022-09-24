@@ -42,7 +42,7 @@ createButton.addEventListener('click',function(){
             //pembuatan array untuk nilai teks judul dan jumlah hari
             arrJumlahHari.push(jumlahHari.value);
             arrTeksJudul.push(teksJudul.value);
-            arrTanggal.push(d.toDateString());
+            arrTanggal.push(d.getTime());
 
             //memasukkan data ke local storage
             localStorage.setItem('TeksJudul',JSON.stringify(arrTeksJudul));
@@ -51,9 +51,15 @@ createButton.addEventListener('click',function(){
 
         }else{
             //pembuatan array untuk nilai teks judul dan jumlah hari
+            let d = new Date();
+            let day = d.getDay();
+            let month = d.getMonth();
+            let year = d.getFullYear();
+
             arrTeksJudul.push(teksJudul.value);
             arrJumlahHari.push(jumlahHari.value);    
-            arrTanggal.push(d.toDateString());
+            arrTanggal.push(day + (month * 30) + (year * 365));
+
 
             //memasukkan data ke local storage
             localStorage.setItem('TeksJudul',JSON.stringify(arrTeksJudul));
@@ -80,7 +86,3 @@ createButton.addEventListener('click',function(){
         habitArea.append(card);
     }
 });
-
-
-let d = new Date();
-console.log(d.toDateString());
