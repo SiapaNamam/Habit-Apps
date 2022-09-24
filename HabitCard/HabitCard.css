@@ -15,10 +15,18 @@
 .card-judul{
     font-size: 10vw;
     margin-top: 5vw;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    color: #32d1c1;
+    color:#542c18;
     text-transform: capitalize;
+    font-weight: bold;
+}
+
+.tanggal{
+    font-size:5vw;
+    text-align: center;
+    color: #e36424;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .card-jumlah{
@@ -44,6 +52,7 @@
     font-size: 7vw;
 }
 
+
 .card-daerah-kotak{
     display: flex;
     flex-wrap: wrap;
@@ -51,6 +60,7 @@
     width: 90%;
     height: 50%;
     overflow-y: scroll;
+    justify-content: center;
 }
 
 .card-kotak{
@@ -64,6 +74,8 @@
 .today{
     text-align: center;
     margin-top: 10vw;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: peru;
 }
 
 .card-login{
@@ -87,6 +99,21 @@
     margin: 5vw;
     background-color: red;
     border-radius: 20%; 
+}
+
+.hapus-isi{
+    position: absolute;
+    border: red;
+    border-style: solid;
+    width: 8vw;
+    height: 8vw;
+    border-radius: 20%;
+    border-width: 1vw;
+    bottom: 9%;
+    left: 10%;
+
+    text-align: center;
+    color: red;
 }
 
 
