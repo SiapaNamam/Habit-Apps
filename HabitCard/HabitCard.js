@@ -2,16 +2,20 @@
 let habitCardsHome = document.querySelectorAll('.habit-card');
 let arrTeksJudulStorage = JSON.parse(localStorage.getItem('TeksJudul'));
 let arrJumlahHariStorage = JSON.parse(localStorage.getItem('JumlahHari'));
+let arrTanggalStorage = JSON.parse(localStorage.getItem('Tanggal'));
 
 //elemen di one habitcard
 let container = document.querySelector('.card-container');
 let cardJudul = document.querySelector('.card-judul');
+let cardTanggal = document.querySelector('.tanggal');
 let cardDaerah = document.querySelector('.card-daerah-kotak');
 let buttonTrue = document.querySelector('.card-tombol-kehadiran-true');
 let buttonFalse = document.querySelector('.card-tombol-kehadiran-false');
 let jumlahTrue = document.querySelector('.card-jumlah-dilakukan');
 let jumlahFalse = document.querySelector('.card-jumlah-tidak-dilakukan');
 let xTombol = document.querySelectorAll('.tanda-hapus');
+let kurangSatu = document.querySelector('.hapus-isi');
+
 let hitungBenar = 0;
 let hitungSalah = 0;
 
@@ -28,12 +32,16 @@ for(habitCard of habitCardsHome){
     });
 }
 
+
 setJudul(); //fungsi ngatur judul card
+setHitungHari();
 setKotak(); //fungsi ngarur banyak box
 setLocalStorage(); //fungsi untuk memasukkan dan mengatur ke local storage
 setWarnaKotak(arrSementara); //untuk ngatur warna
 buttonWhenKotakFull();
 setJumlah(); //untuk menghitung jumlah benar dan salah
+
+
 
 function buttonWhenKotakFull(){
     if(cardDaerah.lastChild.style.backgroundColor == 'red' || cardDaerah.lastChild.style.backgroundColor == 'green'){
@@ -88,6 +96,21 @@ function setJudul(){
     }
 }
 
+function setHitungHari(){
+    let tanggal = new Date(); 
+    for(let i=0;i<arrTeksJudulStorage.length;i++){
+        if(localStorage.getItem('valueBox')== arrTeksJudulStorage[i] + arrJumlahHariStorage[i] + " Harix"){
+            //cardTanggal.textContent = "It Must " + (Math.trunc(tanggal.getTime() / 86400000 ) - arrTanggalStorage[i]) + '!';
+            let day = tanggal.getDay();
+            let month = tanggal.getMonth();
+            let year = tanggal.getFullYear();
+            let valueDate = day + (month * 30) + (year * 365);
+            
+            cardTanggal.textContent = "It Must " + (1 + valueDate  - arrTanggalStorage[i]) +'!';
+        }
+    }
+}
+
 function setKotak(){
     //cek kesamaan
     for(let i=0;i<arrJumlahHariStorage.length;i++){
@@ -114,3 +137,11 @@ function setJumlah(){
         }
     } 
 }
+
+
+
+kurangSatu.addEventListener('click',function(){
+    arrSementara.splice(arrSementara.length-1,1);
+    localStorage.setItem(`${cardJudul.textContent}`,JSON.stringify(arrSementara));
+    location.reload();
+});
