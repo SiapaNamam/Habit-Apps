@@ -97,14 +97,14 @@ function setJudul(){
 }
 
 function setHitungHari(){
-    let tanggal = new Date(); 
     for(let i=0;i<arrTeksJudulStorage.length;i++){
         if(localStorage.getItem('valueBox')== arrTeksJudulStorage[i] + arrJumlahHariStorage[i] + " Harix"){
             //cardTanggal.textContent = "It Must " + (Math.trunc(tanggal.getTime() / 86400000 ) - arrTanggalStorage[i]) + '!';
-            let day = tanggal.getDay();
+            let tanggal = new Date(); 
+            let day = tanggal.getDate();
             let month = tanggal.getMonth();
             let year = tanggal.getFullYear();
-            let valueDate = day + (month * 30) + (year * 365);
+            let valueDate = day + ((1 + month) * 30) + (year * 365);
             
             cardTanggal.textContent = "It Must " + (1 + valueDate  - arrTanggalStorage[i]) +'!';
         }
