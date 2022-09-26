@@ -86,6 +86,9 @@ function penghapusIndeks(indeksChildren){
     arrJumlahHari.splice(indeksChildren,1);
     localStorage.setItem('JumlahHari',JSON.stringify(arrJumlahHari));
 
+    arrTanggal.splice(indeksChildren,1);
+    localStorage.setItem('Tanggal',JSON.stringify(arrTanggal));
+
     color.splice(indeksChildren,1);
     localStorage.setItem('color',JSON.stringify(color));
 }
