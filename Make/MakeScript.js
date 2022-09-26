@@ -37,12 +37,15 @@ createButton.addEventListener('click',function(){
             let arrJumlahHari = [];
             let arrTeksJudul = [];
             let arrTanggal = [];
-            let d =  new Date();
+            let d = new Date();
+            let day = d.getDate();
+            let month = d.getMonth();
+            let year = d.getFullYear();
             
             //pembuatan array untuk nilai teks judul dan jumlah hari
             arrJumlahHari.push(jumlahHari.value);
             arrTeksJudul.push(teksJudul.value);
-            arrTanggal.push(d.getTime());
+            arrTanggal.push(day + ((1 + month) * 30) + (year * 365));
 
             //memasukkan data ke local storage
             localStorage.setItem('TeksJudul',JSON.stringify(arrTeksJudul));
@@ -51,14 +54,14 @@ createButton.addEventListener('click',function(){
 
         }else{
             //pembuatan array untuk nilai teks judul dan jumlah hari
-            let d = new Date();
-            let day = d.getDay();
-            let month = d.getMonth();
-            let year = d.getFullYear();
+                let d = new Date();
+                let day = d.getDate();
+                let month = d.getMonth();
+                let year = d.getFullYear();
 
             arrTeksJudul.push(teksJudul.value);
             arrJumlahHari.push(jumlahHari.value);    
-            arrTanggal.push(day + (month * 30) + (year * 365));
+            arrTanggal.push(day + ((1 + month) * 30) + (year * 365));
 
 
             //memasukkan data ke local storage
